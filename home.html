@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <h2>Bagan Viewpoint</h2>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <nav>
+        <ul id="menu">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="Pagoda.html">Pagoda</a></li>
+            <li><a href="Tours.html">Tours</a></li>
+            <li><a href="#">Hotels</a></li>
+
+        </ul>
+    </nav>
+
+    <div>
+        <ul class="container">
+            <li class="pagoda" onclick="openBox(0)">
+                <img src="Shwegugyi-Bagan-Myanmar-01-gje.jpg">
+            </li>
+            <li class="temple" onclick="openBox(1)">
+                <img src="Ananda-Bagan-Myanmar-25-gje.jpg">
+            </li>
+            <li class="pagoda" onclick="openBox(2)">
+                <img src="Shwezigon-Bagan-Myanmar-06-gje.jpg">
+            </li>
+            <li class="temple" onclick="openBox(3)">
+                <img src="Dhammayangyi-Bagan-Myanmar-12-gje.jpg">
+            </li>
+            <li class="temple" onclick="openBox(4)">
+                <img src="Sulamani_Temple.jpg">
+            </li>
+        </ul>
+
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span class="close" onclick="closeBox()">×</span>
+            <span class="prev" onclick="changeImg(-1)">❮</span>
+            <img id="lightImg">
+            <span class="next" onclick="changeImg(1)">❯</span>
+        </div>
+    </div>
+
+    <div class="tour-grid">
+        <div class="tour-card" data-title="The Unlock Travels & Tours" data-phone="+959 40402 7600" data-fb="https://www.facebook.com/theunlocktravel" data-tiktok="https://www.tiktok.com/@theunlock.travels" data-email="theunlocktravels@gmail.com" data-img="The-Unlock.jpg">
+            The Unlock Travels & Tours
+        </div>
+        <div class="tour-card" data-title="My Trip" data-phone="+959 946 989 969" data-fb="https://www.facebook.com/theunlocktravel" data-tiktok="https://www.tiktok.com/@mytrip09409409707" data-email="mytriptravelinfo@gmail.com" data-img="my-trip.jpg">
+            My Trip
+        </div>
+    </div>
+
+    <!-- Single Reusable Modal -->
+    <div class="modal" id="tourModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeTour()">×</span>
+            <img id="tourImg" src="" alt="">
+            <h2 id="tourTitle"></h2>
+            <p><b>Phone:</b> <span id="tourPhone"></span></p>
+            <p><b>Facebook:</b>
+                <a id="tourFB" href="" target="_blank"></a>
+            </p>
+            <p><b>TikTok:</b>
+                <a id="tourTikTok" href="" target="_blank"></a>
+            </p>
+            <p><b>Email:</b>
+                <a id="tourEmail" href=""></a>
+            </p>
+        </div>
+    </div>
+
+    <div class="hotel-grid">
+        <div class="hotel-card">
+            <img src="Bagan,_Burma.jpg">
+            <b>nnnnnn</b>
+            <i class="fi fi-rr-phone-call"></i>
+
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Quick Links -->
+            <div class="footer-card">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Pagoda.html">Pagoda</a></li>
+                    <li><a href="Tours.html">Tours</a></li>
+                    <li><a href="Hotel.html">Hotels</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-card">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Phone: <b>09 448 589 929</b></li>
+                    <li>Email: <b>heinminaung@example.com</b></li>
+                    <li>Facebook: <b>Hein Min Aung</b></li>
+                </ul>
+            </div>
+
+            <!-- Location Map -->
+            <div class="footer-card">
+                <h3>Location</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.123456789!2d94.858565!3d21.171234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c3a123456789ab%3A0xabcdef123456789!2sBagan%20Ancient%20City!5e0!3m2!1sen!2smm!4v1234567890"
+                    width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            </div>
+
+            <!-- Language / Skills -->
+            <div class="footer-card">
+                <h3>Skills</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Bagan Viewpoint. All Rights Reserved.
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+
+</html>
