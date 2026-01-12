@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagan Tours</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .tour-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            max-width: 400px;
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 22px;
+        }
+        
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Bagan Tours</h2>
+
+    <div class="tour-grid">
+        <div class="tour-card" data-title="The Unlock Travels & Tours" data-phone="+959 40402 7600" data-fb="https://www.facebook.com/theunlocktravel" data-tiktok="https://www.tiktok.com/@theunlock.travels" data-email="theunlocktravels@gmail.com" data-img="The-Unlock.jpg">
+            The Unlock Travels & Tours
+        </div>
+        <div class="tour-card" data-title="My Trip" data-phone="+959 946 989 969" data-fb="https://www.facebook.com/theunlocktravel" data-tiktok="https://www.tiktok.com/@mytrip09409409707" data-email="mytriptravelinfo@gmail.com" data-img="my-trip.jpg">
+            My Trip
+        </div>
+    </div>
+
+    <!-- Single Reusable Modal -->
+    <div class="modal" id="tourModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeTour()">×</span>
+            <img id="tourImg" src="" alt="">
+            <h2 id="tourTitle"></h2>
+            <p><b>Phone:</b> <span id="tourPhone"></span></p>
+            <p><b>Facebook:</b>
+                <a id="tourFB" href="" target="_blank"></a>
+            </p>
+            <p><b>TikTok:</b>
+                <a id="tourTikTok" href="" target="_blank"></a>
+            </p>
+            <p><b>Email:</b>
+                <a id="tourEmail" href=""></a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('tourModal');
+
+        function openTour(event) {
+            const card = event.currentTarget;
+            document.getElementById('tourImg').src = card.dataset.img;
+            document.getElementById('tourImg').alt = card.dataset.title;
+            document.getElementById('tourTitle').textContent = card.dataset.title;
+            document.getElementById('tourPhone').textContent = card.dataset.phone;
+            document.getElementById('tourFB').href = card.dataset.fb;
+            document.getElementById('tourFB').textContent = card.dataset.title;
+            document.getElementById('tourTikTok').href = card.dataset.tiktok;
+            document.getElementById('tourTikTok').textContent = card.dataset.tiktok.split('/@')[1];
+            document.getElementById('tourEmail').href = 'mailto:' + card.dataset.email;
+            document.getElementById('tourEmail').textContent = card.dataset.email;
+            modal.style.display = 'flex';
+        }
+
+        function closeTour() {
+            modal.style.display = 'none';
+        }
+
+        // Attach event listeners
+        document.querySelectorAll('.tour-card').forEach(card => {
+            card.addEventListener('click', openTour);
+        });
+    </script>
+
+</body>
+
+</html>
